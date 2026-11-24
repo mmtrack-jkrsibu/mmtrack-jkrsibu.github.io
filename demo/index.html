@@ -14,9 +14,9 @@
 <meta name="theme-color" content="#2340a8">
 <style>
   :root{
-    --bg:#f5f5f7; --card:#fff; --ink:#1d1d1f; --muted:#86868b; --line:#e5e5ea; --fill:#f2f2f7;
-    --brand:#0071e3; --brand-soft:#e8f1fc; --navy:#12305a; --ok:#34c759; --warn:#ff9f0a; --bad:#ff3b30;
-    --office:#0071e3; --resi:#a8741a; --nonterm:#8e5bd6; --client:#2a9d8f;
+    --bg:var(--bg); --card:#fff; --ink:var(--ink); --muted:var(--muted); --line:var(--line); --fill:var(--fill);
+    --brand:var(--brand); --brand-soft:#e8f1fc; --navy:#12305a; --ok:#34c759; --warn:#ff9f0a; --bad:#ff3b30;
+    --office:var(--brand); --resi:#a8741a; --nonterm:#8e5bd6; --client:#2a9d8f;
     --r:18px; --shadow:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -33,7 +33,7 @@
   /* tab bar */
   nav{position:fixed;bottom:0;left:0;right:0;background:rgba(250,250,252,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
     border-top:.5px solid rgba(0,0,0,.1);display:flex;z-index:5;padding-bottom:env(safe-area-inset-bottom)}
-  nav button{flex:1;border:0;background:none;padding:8px 0 10px;font-size:10.5px;font-weight:600;color:#8e8e93;display:flex;flex-direction:column;align-items:center;gap:3px}
+  nav button{flex:1;border:0;background:none;padding:8px 0 10px;font-size:10.5px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px}
   nav button svg{width:25px;height:25px}
   nav button.on{color:var(--brand)}
   /* cards */
@@ -65,7 +65,7 @@
   .b-Pending,.b-Plan,.b-Nearly{background:#fff4e0;color:#b25e00} .b-Request,.b-Planned{background:var(--fill);color:#636366}
   .b-Act,.b-Over{background:#ffe9e7;color:#d70015}
   .b-New{background:var(--fill);color:var(--muted)} .b-Estimated,.b-SGR{background:#fff4e0;color:#b25e00} .b-Deferred{background:#ffe9e7;color:#d70015}
-  .b-Invoice,.b-At{background:#eef0ff;color:#4b4fc4} .b-No{background:var(--fill);color:#8e8e93}
+  .b-Invoice,.b-At{background:#eef0ff;color:#4b4fc4} .b-No{background:var(--fill);color:var(--muted)}
   .job{display:block;width:100%;text-align:left;background:var(--card);border:0;border-radius:16px;padding:14px 16px;margin-bottom:10px;font:inherit;color:inherit;box-shadow:var(--shadow)}
   .job:active{transform:scale(.99);opacity:.85}
   .job .top{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);font-weight:500}
@@ -81,20 +81,20 @@
   @media (max-width:520px){.three{grid-template-columns:1fr 1fr}.three>div:last-child{grid-column:1/-1}}
   .dbar{display:flex;align-items:center;gap:10px;background:#fff4e0;color:#8a4b00;border-radius:14px;padding:11px 14px;margin:0 0 10px;font-size:13.5px;font-weight:600}
   .dbar button{border:0;background:#fff;color:#8a4b00;font-weight:700;border-radius:10px;padding:7px 12px;font-size:13px}
-  .drow{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line,#e5e5ea)}
+  .drow{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line,var(--line))}
   .drow:last-child{border-bottom:0}
   .drow .t{font-weight:600;font-size:14.5px}
   .drow .s{font-size:12.5px;color:var(--muted);margin-top:2px}
   .drow .err{color:#c4302b}
   .drow button{border:0;background:var(--fill);color:var(--brand);font-weight:600;border-radius:10px;padding:7px 11px;font-size:13px}
   .hist{font-size:13px;margin-top:10px}
-  .hist div{padding:7px 0;border-bottom:1px solid var(--line,#e5e5ea)}
+  .hist div{padding:7px 0;border-bottom:1px solid var(--line,var(--line))}
   .hist b{font-weight:600}
   .danger{color:#c4302b!important}
-  .offline{position:fixed;left:50%;transform:translateX(-50%);top:8px;z-index:30;background:#1d1d1f;color:#fff;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;display:none}
+  .offline{position:fixed;left:50%;transform:translateX(-50%);top:8px;z-index:30;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;display:none}
   body.isoff .offline{display:block}
   .secl{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:22px 4px 2px}
-  .sori{padding:12px 0;border-bottom:1px solid var(--line,#e5e5ea)}
+  .sori{padding:12px 0;border-bottom:1px solid var(--line,var(--line))}
   .sori:last-child{border-bottom:0}
   .sori .c{font-weight:700;font-size:13px;color:var(--brand);min-width:44px}
   .sori .d{font-size:14px;white-space:pre-line;line-height:1.4}
@@ -108,14 +108,14 @@
   .adm button{flex:1;border:0;background:#fff;box-shadow:var(--shadow);border-radius:12px;padding:11px;font-weight:700;font-size:13.5px;color:var(--brand)}
   .eloc{display:flex;align-items:center;gap:8px;margin:16px 0 4px}
   .eloc input{font-weight:700;background:none;padding:6px 4px;font-size:15px}
-  .eln{padding:10px 0;border-bottom:1px solid var(--line,#e5e5ea)}
+  .eln{padding:10px 0;border-bottom:1px solid var(--line,var(--line))}
   .eln .t{font-size:14px;line-height:1.35}
   .eln .m{font-size:12px;color:var(--muted);margin-top:2px}
   .qty{display:flex;align-items:center;gap:4px;margin-top:8px}
   .qty button{border:0;background:var(--fill);width:34px;height:34px;border-radius:10px;font-size:18px;font-weight:700;color:var(--brand)}
   .qty input{width:64px;text-align:center;padding:7px 4px}
   .tot{display:flex;justify-content:space-between;padding:6px 0;font-size:14px}
-  .tot.g{font-weight:800;font-size:17px;border-top:1px solid var(--line,#e5e5ea);margin-top:4px;padding-top:10px}
+  .tot.g{font-weight:800;font-size:17px;border-top:1px solid var(--line,var(--line));margin-top:4px;padding-top:10px}
   .codeS{background:#eef5ff;border-radius:12px;padding:11px 13px;font-size:13px;margin-top:12px}
   .job .d,.xi b.grow{white-space:pre-line}
   .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
@@ -130,7 +130,7 @@
   .viewer .vb button{border:0;background:rgba(255,255,255,.16);color:#fff;border-radius:10px;padding:8px 12px;font-weight:600}
   .viewer .vi{flex:1;display:flex;align-items:center;justify-content:center;overflow:auto;padding:8px}
   .viewer img{max-width:100%;max-height:100%;object-fit:contain}
-  .b-Cancelled{background:#f2f2f7;color:#8e8e93;text-decoration:line-through}
+  .b-Cancelled{background:var(--fill);color:var(--muted);text-decoration:line-through}
   .btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-size:16px;font-weight:700;background:var(--brand);color:#fff;margin-top:18px;letter-spacing:-.01em}
   .btn:active{opacity:.75}
   .btn.sec{background:var(--fill);color:var(--brand);margin-top:10px}
@@ -141,7 +141,7 @@
   .sheet{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:20;display:none;align-items:flex-end;justify-content:center}
   .sheet.on{display:flex}
   .sheet .in{background:#fff;width:100%;max-width:640px;max-height:calc(92vh / var(--z,1));overflow:auto;border-radius:22px 22px 0 0;padding:10px 18px 30px;overscroll-behavior:contain}
-  .sheet .in::before{content:'';display:block;width:38px;height:5px;border-radius:3px;background:#d1d1d6;margin:0 auto 12px}
+  .sheet .in::before{content:'';display:block;width:38px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 12px}
   
   
   .kv{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px;margin:14px 0;background:var(--fill);border-radius:14px;padding:14px}
@@ -149,7 +149,7 @@
   .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:rgba(29,29,31,.92);backdrop-filter:blur(10px);color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;font-weight:600;z-index:30;display:none;max-width:90%;text-align:center}
   .loading{position:fixed;inset:0;background:rgba(245,245,247,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:40;font-weight:600;color:var(--muted)}
   .loading.on{display:flex}
-  .loading::before{content:'';width:22px;height:22px;border:2.5px solid #d1d1d6;border-top-color:var(--muted);border-radius:50%;margin-right:10px;animation:spin .8s linear infinite}
+  .loading::before{content:'';width:22px;height:22px;border:2.5px solid var(--line);border-top-color:var(--muted);border-radius:50%;margin-right:10px;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
   .bar{height:8px;background:var(--fill);border-radius:6px;overflow:hidden;position:relative}
   .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
@@ -167,7 +167,7 @@
   .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;font-weight:600}
   .legend{display:flex;gap:12px;flex-wrap:wrap;margin:2px 0 4px}
   .legend span{display:flex;align-items:center;gap:5px}
-  .lg{display:inline-block;width:12px;height:8px;border-radius:2px;background:#6e6e73}
+  .lg{display:inline-block;width:12px;height:8px;border-radius:2px;background:var(--muted)}
   .share.tot{border-bottom:0;font-weight:700;padding-bottom:0}
   .sub{margin:22px 0 4px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
   .acct{display:flex;align-items:center;gap:8px;font-weight:700;margin:16px 0 2px}
@@ -207,11 +207,11 @@
   .kv2 div:nth-child(odd){color:var(--muted)} .kv2 div:nth-child(even){font-weight:600;text-align:right;white-space:normal}
   .mchart{width:100%;height:auto;display:block}
   .mchart .grid{stroke:var(--line);stroke-width:.6} .mchart .ax{font:600 8px var(--font);fill:var(--muted)} .mchart .ax.b{fill:var(--ink)}
-  .mchart .fc{fill:none;stroke:#8e8e93;stroke-width:1.2;stroke-dasharray:3 2} .mchart .pl{fill:#6e6e73;opacity:.45}
+  .mchart .fc{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:3 2} .mchart .pl{fill:var(--muted);opacity:.45}
   .mchart .now{stroke:var(--bad);stroke-width:1.2} .mchart .sel{fill:none;stroke:var(--ink);stroke-width:1.2;rx:3}
   .mchart .mb{cursor:pointer}
   .cap{margin-top:6px;min-height:18px}
-  .lg.fcl{background:none;border:1.2px dashed #8e8e93;box-sizing:border-box}
+  .lg.fcl{background:none;border:1.2px dashed var(--muted);box-sizing:border-box}
   .tl{position:relative}
   .tlax{position:relative;height:16px;margin-left:34%;font-size:10px;color:var(--muted);font-weight:600}
   .tlax span{position:absolute;transform:translateX(-50%);white-space:nowrap}
@@ -248,7 +248,7 @@
   body.auth header,body.auth nav{display:none}
   body.auth main{padding:0;max-width:none}
   .login{min-height:calc(100vh / var(--z,1));display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px 24px;text-align:center;
-    background:radial-gradient(1200px 500px at 50% -10%,#ffffff 0%,#f5f5f7 60%)}
+    background:radial-gradient(1200px 500px at 50% -10%,#ffffff 0%,var(--bg) 60%)}
   .brand{margin-bottom:26px}
   .logo{width:88px;height:88px;margin:0 auto 16px;border-radius:22px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);overflow:hidden}
   .logo img{width:84%;height:84%;object-fit:contain}
@@ -712,6 +712,39 @@
   .jx-locs{padding:0}
   .jx-ha{display:none}@media (min-width:1024px){.jx-ha{display:block}}
   .jx-ha .btn{width:auto;margin:0;display:inline-flex;align-items:center;gap:8px}
+
+  /* progress tracker (4p) */
+  .trk{padding:16px 18px;margin-bottom:16px}
+  .trk-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}.trk-h h2{font-size:15px;margin:0;flex:1}
+  .trk-bs{display:flex;gap:8px;flex-wrap:wrap}
+  .trk-b{display:inline-flex;align-items:center;gap:6px;min-height:26px;padding:3px 10px;border-radius:7px;font-size:12.5px;font-weight:700;background:var(--fill);color:var(--ink)}
+  .trk-b.warn{background:var(--warn-bg);color:var(--warn-ink)}.trk-b.bad{background:var(--bad-bg);color:var(--bad-ink)}.trk-b.ok{background:var(--ok-bg);color:var(--ok-ink)}
+  .trk-ol{display:flex;list-style:none;margin:0;padding:0}
+  .trk-s{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
+  .trk-s:not(:last-child)::after{content:'';position:absolute;top:10px;left:calc(50% + 13px);right:calc(-50% + 13px);height:2px;border-radius:1px;background:var(--line)}
+  .trk-s.done:not(:last-child)::after{background:var(--brand)}
+  .trk-d{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center;font-style:normal;color:var(--surface);position:relative;z-index:1}
+  .trk-s.done .trk-d{background:var(--brand);border-color:var(--brand)}
+  .trk-s.cur .trk-d{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+  .trk-s.hold .trk-d{border-color:var(--warn);box-shadow:0 0 0 4px var(--warn-bg);color:var(--warn-ink)}
+  .trk-s.stop .trk-d{border-color:var(--muted);box-shadow:none;color:var(--muted)}
+  .trk-l{font-size:12.5px;font-weight:600;color:var(--muted);margin-top:7px;white-space:nowrap}
+  .trk-s.done .trk-l{color:var(--ink)}.trk-s.cur .trk-l{color:var(--ink);font-weight:800}
+  .trk-t{font-size:12px;color:var(--muted);min-height:16px;font-variant-numeric:tabular-nums}
+  .trk-s.hold .trk-t{color:var(--warn-ink);font-weight:700}
+  .trk.closed .trk-s.done .trk-d{background:var(--muted);border-color:var(--muted)}.trk.closed .trk-s.done:not(:last-child)::after{background:var(--muted)}
+  .trk-ph{display:none}
+  .trk-seg{display:flex;gap:5px;margin-bottom:9px}.trk-seg i{flex:1;height:6px;border-radius:3px;background:var(--line)}.trk-seg i.done{background:var(--brand)}.trk-seg i.cur{background:var(--brand-soft);outline:1.5px solid var(--brand);outline-offset:-1.5px}
+  .trk-ph b{display:block;font-size:14px}.trk-ph span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+  .trk-hold,.trk-nx{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+  .trk-hold b,.trk-nx b{display:block;font-size:15px}.trk-hold span,.trk-nx .muted{display:block;font-size:13.5px}
+  .trk-hold b{color:var(--warn-ink)}.trk-hold span{color:var(--muted)}
+  .trk-a{display:flex;gap:8px;flex:none}.trk-a .btn,.trk-hold .btn{margin:0;width:auto;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .trk-a .jx-2{display:flex;gap:8px}
+  .trk-past{margin:10px 0 0;font-size:12.5px;color:var(--muted)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  @media (max-width:759px){.trk-ol{display:none}.trk-ph{display:block}.trk-nx,.trk-hold{flex-direction:column;align-items:stretch}.trk-a{flex-direction:column-reverse}.trk-a .btn,.trk-hold .btn,.trk-a .jx-2 .btn{width:100%;justify-content:center}.trk-a .jx-2{flex-direction:column}}
+  @media print{.trk-a,.trk-hold .btn{display:none}}
   .jx-pills{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
   .jx-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
   @media (min-width:1024px){.jx-grid{grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);align-items:start}.jx-r1{order:2;position:sticky;top:80px}.jx-l{order:1}.jx-upd{display:none!important}}
@@ -915,7 +948,7 @@
   <button class="newj" id="newJobBtn" onclick="if(D)show('new')"><span id="newJobIc"></span>New job</button>
   <span id="roleTag" class="roletag hide"></span>
 </header>
-<div class="pband" id="pband"></div>
+<div class="pband" id="pband" role="region" aria-label="Page header"></div>
 
 <main>
 <div id="loadErr" class="hide"></div>
@@ -1096,6 +1129,9 @@
  var LEVEL={'Ahmad Rizal bin Osman':'admin','Ir. Hafiz bin Rahman':'viewer','Ir. Wong Kah Seng':'viewer','Ir. Nurul Huda binti Salleh':'viewer'};
  window.MOCKLOG=[];
  var REQS={};(function(){var nm=['Encik Ali (Pejabat Daerah)','Puan Mary (Kuarters D3)','Tuan Hj Bakar'];JOBS.forEach(function(r,k){if(k%4===3)return;REQS[r[0]+' #'+r[2]]=[nm[k%3],k%4===0?'Urgent':k%4===1?'Non-urgent':(k%8===2?'Scheduled':'Urgent')];});})();
+ var HOLDS={'AC-26B #3':[['Waiting for access or occupant','','2026-09-20','2026-09-24','Lim Mei Ling'],['Waiting for spare part','Compressor on order','2026-11-12','','Lim Mei Ling']]};
+ JOBS[3][3]='2026-10-26';JOBS[3][11]='2026-11-05';JOBS[3][13]='2026-11-08';
+ JOBS[2][3]='2026-11-01';JOBS[2][9]='2026-11-05';
  var SGRS=[{id:'S2026-001',refNo:'DEMO/ME/B/26/035',date:'2026-10-02',contract:'OFF-26',coding:'B0228',objectCode:'B0228102',jobs:['OFF-26 #4'],desc:'MECHANICAL MAINTENANCE FOR STATE OFFICE BUILDING',vocab:[{details:['To supply, deliver and carry out repair works','for booster pump set'],ref:'as per attached estimation',qty:'1 Lot',price:1200}],total:1200,accumulative:20000,requested:{name:'Lim Mei Ling',desig:'Pen. Jurutera Mekanikal, JA5'},agreed:{name:'Ahmad Rizal bin Osman',desig:'Jurutera Mekanikal, J9'},approved:{name:'Ir. Hafiz bin Rahman',desig:'Pen. Jurutera Bahagian, J10'},status:'Raised',revision:0}];
  function who(pin){var p=String(pin||''),i=p.indexOf('::'),code=i>0?p.slice(0,i):p,nm=i>0?p.slice(i+2):'';if(code!=='123456')throw new Error('Exception: PIN');var s=STAFF.filter(function(x){return x[0]===nm;})[0];if(!s)throw new Error('Exception: PIN');return {name:s[0],desig:s[1],level:LEVEL[s[0]]||'editor'};}
  var API={
@@ -1119,11 +1155,13 @@
   app_upload:function(){throw new Error('Photos and files are switched off in the demo.');},
   app_fileData:function(){throw new Error('Photos and files are switched off in the demo.');},
   app_saveEstimate:function(pin,e){who(pin);return {ok:true,id:e&&e.id||'E26-099'};},
+  app_hold:function(pin,ref,act,r,nt,d){var me=who(pin);var h=HOLDS[ref]=HOLDS[ref]||[];var o=h.filter(function(x){return !x[3];})[0];window._hold=[ref,act,r,nt,d];
+   if(act==='hold'){if(o)throw new Error('Already on hold since '+o[2]+'. Refresh to see it.');h.push([r,nt,d,'',me.name]);}else{if(!o)throw new Error('This job is no longer on hold. Refresh to see the latest.');o[3]=d;}return {ok:true,holds:JSON.parse(JSON.stringify(h))};},
   app_staff:function(){return {needsPin:true,url:'https://script.google.com/macros/s/x/exec',staff:STAFF};},
   app_verify:function(pin){return who(pin);},
   app_load:function(pin){var me=who(pin);var role=me.level==='viewer'?'view':'edit';
    return {role:role,me:me,contracts:CON,jobs:JOBS.map(function(r){return r.slice();}),coding:['B0228','B0335','A1435','28000'],statuses:['Request','Site visited','In progress','Completed','Scheduled','Deferred (no funds)','Cancelled'],facilities:['Wisma Persekutuan','Taman Wawasan'],buildings:[['Kuarters Kenyalang','Residential','',[['Blok A',['D1','D2','D3']],['Blok B',['E1','E2']]]],['Wisma Persekutuan','Office','',[]],['Pejabat Daerah Kanowit','Office','',[]]],today:today,codingFrom:2026,sheetUrl:'',staff:STAFF.filter(function(s){return s[2]!=='viewer';}).map(function(s){return [s[0],s[1],LEVEL[s[0]]||'editor'];}),
-   reqs:(function(){var o={};Object.keys(REQS).forEach(function(k){o[k]=[role==='view'?'':REQS[k][0],REQS[k][1]];});return o;})(),
+   reqs:(function(){var o={};Object.keys(REQS).forEach(function(k){o[k]=[role==='view'?'':REQS[k][0],REQS[k][1],(HOLDS[k]||[]).map(function(h){return role==='view'?[h[0],'',h[2],h[3],'']:h.slice();})];});return o;})(),
    estimates:JOBS.filter(function(r){return r[8]!=='';}).map(function(r,i){return ['E26-0'+(10+i),'',r[0]+' #'+r[2],r[8]];}),
    approvers:STAFF.filter(function(s){return s[2]==='viewer';}).map(function(s){return [s[0],s[1]];}),
    sgrs:SGRS.map(function(x){return [x.id,x.refNo,x.date,x.contract,x.coding,x.objectCode,x.jobs.join(', '),x.total,x.status,x.revision,x.desc,x.requested.name];}),
@@ -2109,7 +2147,7 @@ function reqEdit(i,after){
     '<div id="rq_err" class="rg-err" role="alert"></div><button class="btn" id="rq_s">Save</button>';
   $('rq_s').onclick=function(){var by=$('rq_by').value.trim(),u=($('sheetIn').querySelector('input[name="rq_u"]:checked')||{}).value||'';
     $('rq_s').disabled=true;
-    call('app_reqSet',PIN,ref,by,u).then(function(){D.reqs=D.reqs||{};D.reqs[ref]=[by,u];closeSheet();toast('Saved ✓');if(after)after();else if(current==='job')drawJob();else if(current==='insights')drawInsights();})
+    call('app_reqSet',PIN,ref,by,u).then(function(){D.reqs=D.reqs||{};D.reqs[ref]=[by,u,(D.reqs[ref]||[])[2]||[]];closeSheet();toast('Saved ✓');if(after)after();else if(current==='job')drawJob();else if(current==='insights')drawInsights();})
       .catch(function(e){$('rq_s').disabled=false;$('rq_err').innerHTML=ic('alert',16,2.2)+'<span>'+esc(errMsg(e))+'</span>';});};
   openSheet();$('sheetIn').scrollTop=0;
 }
@@ -3912,7 +3950,7 @@ var I={
  logout:'<path d="M14 4.5h4.5v15H14"/><path d="M10 8 6 12l4 4M6 12h9"/>',undo:'<path d="M9 7 4.5 11.5 9 16"/><path d="M4.5 11.5H15a4.5 4.5 0 0 1 0 9h-2"/>',
  collapse:'<rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M9 4.5v15"/><path d="m15.5 10-2 2 2 2"/>',
  expand:'<rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M9 4.5v15"/><path d="m13.5 10 2 2-2 2"/>',
- pause:'<rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/>',
+ pause:'<rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/>',play:'<path d="M7 4v16l13-8z"/>',
  camera:'<path d="M4 8.5h3l1.5-2.5h7L17 8.5h3v11H4z"/><circle class="ac" cx="12" cy="13.5" r="3.2"/>',
  file:'<path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4"/>',
  move:'<path d="M4 12h15"/><path d="m15 7 5 5-5 5"/>',
@@ -4082,12 +4120,116 @@ function jxNext(j,i){
   else if(st==='Estimated'){t='Next: raise SGR';s='Estimate '+rm(es?es[3]:j[J.value])+'. Put it on an SGR, alone or with other jobs under the same contract.';a='<div class="jx-2">'+b(es?'Edit estimate':'Build estimate','openEstimate('+i+')','','sec')+b('Raise SGR','jxRaiseSgr([\''+R+'\'])','sgr')+'</div>';}
   else if(st==='Deferred'){t='Deferred: waiting for funds';s='The estimate is carried forward. Update the job when funds are available.';a=b('Update job','editJob('+i+')','jobs','sec');}
   else if(st==='SGR done'){t='Next: SO from Account';s='On SGR '+(sg?esc(sgrShort(sg[1])):'')+'. Record the SO number, date and amount when it arrives.';a=b('Record SO','editJob('+i+',\'u_sono\')','file');}
-  else if(st==='SO issued'){t='Next: invoice';s='SO '+esc(j[J.sono]||'')+(n(j[J.soamt])?' · '+rm(j[J.soamt]):'')+'. Record the dates the work started and finished, then the invoice.';a=b('Record invoice','editJob('+i+',\'u_inv\')','file');}
+  else if(st==='SO issued'&&!j[J.done]){t='Next: work done';s='SO '+esc(j[J.sono]||'')+(n(j[J.soamt])?' · '+rm(j[J.soamt]):'')+'. Record the dates the work started and finished.';a=b('Record work done','editJob('+i+',\'u_done\')','check');}
+  else if(st==='SO issued'){t='Next: invoice';s='Work done '+dt(j[J.done])+'. Record the date the invoice was received.';a=b('Record invoice','editJob('+i+',\'u_inv\')','file');}
   else if(st==='Invoice received'){t='Next: send to Account';s='Invoice received '+dt(j[J.inv])+'. Record the date it went to Account.';a=b('Record date sent','editJob('+i+',\'u_acc\')','file');}
   else if(st==='At Account'){t='Next: payment';s='At Account since '+dt(j[J.acc])+'. Record the amount paid only after Account confirms.';a=b('Record payment','editJob('+i+',\'u_paid\')','pay');}
   else if(st==='Paid'){t='Done';s='Paid '+rm(j[J.paid])+(j[J.paydate]?' on '+dt(j[J.paydate]):'')+'. Nothing more to do.';}
   else {t='Closed';s=esc(prog(j)[1])+'.'+(j[J.remarks]?'':' Update the job if this was a mistake.');}
-  return '<div class="card jx-next"><span class="jx-k">'+esc(prog(j)[1])+'</span><b>'+t+'</b><span class="muted">'+s+'</span>'+(a?'<div class="jx-na">'+a+'</div>':'')+'</div>';
+  return {t:t,s:s,a:a};
+}
+
+// ---- progress tracker and clocks (build 4p)
+/** Work clock: date of request to work done. Invoice clock: when every job on the SGR is done, to invoice received. Days on hold don't count. */
+var CLK={work:28,inv:14};
+var TRK_STEPS=['Request','Estimated','SGR','SO','Work done','Invoice','Account','Paid'];
+var HOLD_REASONS=['Waiting for spare part','Waiting for access or occupant','Waiting for funds','Other'];
+function jHolds(j){var r=jReq(j);return (r&&r[2])||[];}
+function jHold(j){return jHolds(j).filter(function(h){return !h[3];})[0]||null;}
+function isoAdd(iso,d){var x=pd(iso);if(!x)return '';x.setDate(x.getDate()+d);return x.getFullYear()+'-'+('0'+(x.getMonth()+1)).slice(-2)+'-'+('0'+x.getDate()).slice(-2);}
+/** Days on hold between two dates (a still-open hold runs to today). */
+function holdDays(j,a,b){var A=pd(a),B=pd(b);if(!A||!B||B<=A)return 0;var t=0;
+  jHolds(j).forEach(function(h){var f=pd(h[2]),e=pd(h[3]||D.today);if(!f||!e)return;var x=f>A?f:A,y=e<B?e:B;if(y>x)t+=Math.round((y-x)/864e5);});return t;}
+/** Planned, scheduled and not-a-request work has no work clock (same rule as the response-time scorecard). */
+function workClockOn(j){var st=jStage(j);if(st==='Cancelled'||st==='No cost'||st==='Planned'||!j[J.req])return false;
+  var rq=jReq(j);if(rq&&RT_OUT.indexOf(rq[1])>=0)return false;if((!rq||!rq[1])&&(j[J.status]==='Scheduled'||j[J.stage]==='Planned'))return false;return true;}
+/** When the invoice clock starts: the last work-done date among the jobs on the same SGR. */
+function invStart(j){if(!j[J.done])return {start:''};var sg=sgrFor(j);if(!sg)return {start:j[J.done]};
+  var js=sg[6].split(', ').map(jobByRef).filter(function(x){return x&&jStage(x)!=='Cancelled';});
+  var left=js.filter(function(x){return !x[J.done];});
+  if(left.length)return {start:'',wait:true,n:js.length,left:left.length,sg:sg};
+  return {start:js.reduce(function(m,x){return x[J.done]>m?x[J.done]:m;},''),n:js.length,sg:sg};}
+/** {kind,t,start,end,days,run,over,due} or null when the clock doesn't apply. */
+function jClock(j,kind){
+  var st=jStage(j);if(st==='Cancelled'||st==='No cost')return null;
+  var t=CLK[kind],a,b,x={kind:kind,t:t};
+  if(kind==='work'){if(!workClockOn(j))return null;a=j[J.req];b=j[J.done];}
+  else{var s=invStart(j);if(s.wait){x.wait=s;return x;}if(!s.start)return null;a=s.start;b=j[J.inv];x.sgN=s.n;}
+  var end=b||D.today;x.start=a;x.end=b||'';x.run=!b;x.hold=holdDays(j,a,end);
+  x.days=Math.max(0,(rtDays(a,end)||0)-x.hold);x.over=x.days>t;
+  x.due=isoAdd(a,t+x.hold);x.warn=!x.over&&x.run&&x.days>=Math.ceil(t*.75);
+  return x;}
+function clkName(k){return k==='work'?'Work':'Invoice';}
+/** Where the job is on the tracker: index of the current step (8 = all done). */
+function trkIdx(j){if(n(j[J.paid])||j[J.paydate])return 8;if(j[J.acc])return 7;if(j[J.inv])return 6;if(j[J.done])return 5;
+  if(String(j[J.sono]||'').trim()||n(j[J.soamt])||j[J.sodate])return 4;if(j[J.sgr]||sgrFor(j))return 3;
+  if(n(j[J.est])||estFor(j))return 2;return 1;}
+function trkDates(j){var es=estFor(j),sg=sgrFor(j);return [j[J.req],es?es[4]:'',j[J.sgr]||(sg?sg[2]:''),j[J.sodate],j[J.done],j[J.inv],j[J.acc],j[J.paydate]];}
+function dm(iso){var p=String(iso||'').split('-');return p.length===3?p[2]+'/'+p[1]:'';}
+function dPl(n){return n+' day'+(n===1?'':'s');}
+/** The pill at the top right of the tracker. */
+function trkBadge(j,idx,hold){
+  var c=idx<=4?jClock(j,'work'):idx===5?jClock(j,'inv'):null,w,v,out=[];
+  if(c&&c.wait)return '<span class="trk-b">'+ic('clock',14,2.2)+'Invoice clock starts when '+(c.wait.n===2?'both':'all '+c.wait.n)+' SGR jobs are done ('+(c.wait.n-c.wait.left)+' of '+c.wait.n+')</span>';
+  if(c&&c.run){var cls=hold?'warn':c.over?'bad':c.warn?'warn':'';
+    return '<span class="trk-b '+cls+'">'+ic(hold?'pause':'clock',14,2.2)+(hold?'Paused · ':'')+(c.kind==='inv'?'Invoice day ':'Day ')+c.days+' of '+c.t+(c.over?' · '+(c.days-c.t)+' over':'')+'</span>';}
+  // finished clocks: how long each took
+  w=jClock(j,'work');v=jClock(j,'inv');
+  [w,v].forEach(function(x){if(x&&!x.wait&&!x.run)out.push('<span class="trk-b '+(x.over?'bad':'ok')+'">'+ic(x.over?'alert':'check',14,2.4)+clkName(x.kind)+' '+dPl(x.days)+(x.over?' · '+(x.days-x.t)+' over':'')+'</span>');});
+  return out.join('');}
+function trkHtml(j,i,ed){
+  var st=jStage(j),idx=trkIdx(j),ds=trkDates(j),hold=jHold(j),closed=st==='Cancelled'||st==='No cost',def=st==='Deferred';
+  var cur=idx<8?idx:-1,cw=jClock(j,'work'),ci=jClock(j,'inv'),cc=idx<=4?cw:idx===5?ci:null;
+  var sub=function(k){if(k<idx)return ds[k]?dm(ds[k]):'—';if(k!==cur)return '';
+    if(closed)return st;if(def)return 'Deferred';if(hold)return 'On hold';
+    if(cc&&cc.wait)return 'After SGR jobs';if(cc&&cc.run)return (cc.over?'was due ':'due ')+dm(cc.due);return '';};
+  var steps=TRK_STEPS.map(function(lab,k){var c=k<idx?'done':k===cur?(closed?'cur stop':hold||def?'cur hold':'cur'):'';
+    return '<li class="trk-s '+c+'"'+(k===cur?' aria-current="step"':'')+'><i class="trk-d" aria-hidden="true">'+(k<idx?ic('check',12,3):k===cur&&(hold||def)?ic('pause',11,2.6):k===cur&&closed?ic('x',11,2.6):'')+'</i>'+
+      '<span class="trk-l">'+lab+(k<idx?'<span class="sr"> (done)</span>':'')+'</span><span class="trk-t">'+esc(sub(k))+'</span></li>';}).join('');
+  var segs=TRK_STEPS.map(function(l,k){return '<i class="'+(k<idx?'done':k===cur?'cur':'')+'"></i>';}).join('');
+  var now=idx<8?TRK_STEPS[idx]:'Paid';
+  var phone='<div class="trk-ph" aria-hidden="true"><div class="trk-seg">'+segs+'</div><b>'+(idx<8?'Step '+(idx+1)+' of 8 · '+now:'All 8 steps done')+'</b>'+
+    '<span>'+(idx>0&&ds[idx-1]?TRK_STEPS[idx-1]+' '+dt(ds[idx-1]):'')+(cc&&cc.run?(idx>0&&ds[idx-1]?' · ':'')+'due '+dt(cc.due):'')+'</span></div>';
+  // footer: next step and hold
+  var foot='',nx=ed?jxNext(j,i):null;
+  if(hold){var hd=holdDays(j,hold[2],D.today),clkNow=cc&&cc.run?' at day '+cc.days+' of '+cc.t:'';
+    foot+='<div class="trk-hold" role="status"><div class="grow"><b>Paused'+clkNow+'</b><span>'+esc(hold[0])+(hold[1]?': '+esc(hold[1]):'')+' · since '+dt(hold[2])+' ('+dPl(hd)+')'+(ed&&hold[4]?' · set by '+esc(hold[4]):'')+'</span></div>'+
+      (ed?'<button class="btn sec" onclick="holdResume('+i+')">'+ic('play',16,2.2)+'Resume</button>':'')+'</div>';}
+  if(nx){foot+='<div class="trk-nx"><div class="grow"><b>'+nx.t+'</b><span class="muted">'+nx.s+'</span></div><div class="trk-a">'+
+      (!hold&&!closed&&!def&&idx>=1&&idx<=5?'<button class="btn sec" onclick="holdEdit('+i+')">'+ic('pause',16,2.2)+'Put on hold</button>':'')+(nx.a||'')+'</div></div>';}
+  else foot+='<div class="trk-nx"><div class="grow"><b>'+esc(prog(j)[1])+'</b><span class="muted">'+esc((JSTAGE[st]||[])[2]||'')+'</span></div></div>';
+  var held=jHolds(j).filter(function(h){return h[3];});
+  if(held.length&&ed)foot+='<p class="trk-past">'+held.length+' earlier hold'+(held.length>1?'s':'')+', '+dPl(held.reduce(function(a,h){return a+(rtDays(h[2],h[3])||0);},0))+' in all, not counted.</p>';
+  return '<section class="card trk'+(closed?' closed':'')+'" aria-label="Progress"><div class="trk-h"><h2>Progress</h2><div class="trk-bs">'+trkBadge(j,idx,hold)+'</div></div>'+
+    '<ol class="trk-ol">'+steps+'</ol>'+phone+foot+'</section>';}
+/** Put on hold: why and since when. */
+function holdEdit(i){
+  var j=D.jobs[i];if(!j)return;var ref=jRef(j);
+  $('sheetIn').innerHTML='<div class="row"><div class="grow"><div class="small muted">'+esc(ref)+' · '+esc(j[J.facility]||'')+'</div><h2 style="margin:2px 0 0">Put on hold</h2></div><button class="chip" onclick="closeSheet()">Close</button></div>'+
+    '<label>Waiting for</label><div class="fx-opt">'+HOLD_REASONS.map(function(r,k){return '<label><input type="radio" name="hd_r" value="'+esc(r)+'"'+(k===0?' checked':'')+'><span>'+esc(r==='Other'?'Something else':r.replace(/^Waiting for /,'').replace(/^./,function(c){return c.toUpperCase();}))+'</span></label>';}).join('')+'</div>'+
+    fld('hd_n','Note','','text',' maxlength="120" placeholder="Compressor ordered from supplier, 2 weeks"')+
+    fld('hd_d','On hold since',D.today,'date',' max="'+D.today+'"')+
+    '<p class="note">Days on hold are not counted in the 28-day work clock or the 14-day invoice clock. The note is needed when you choose Something else.</p>'+
+    '<div id="hd_err" class="rg-err" role="alert"></div><button class="btn" id="hd_s">Put on hold</button>';
+  $('hd_s').onclick=function(){var r=($('sheetIn').querySelector('input[name="hd_r"]:checked')||{}).value||'',nt=$('hd_n').value.trim(),d=$('hd_d').value;
+    if(r==='Other'&&!nt){$('hd_err').innerHTML=ic('alert',16,2.2)+'<span>Say briefly what the job is waiting for.</span>';$('hd_n').focus();return;}
+    holdSend(i,'hold',r,nt,d,'hd_s','hd_err','On hold');};
+  openSheet();$('sheetIn').scrollTop=0;
+}
+function holdResume(i){
+  var j=D.jobs[i],h=j&&jHold(j);if(!h)return;
+  $('sheetIn').innerHTML='<div class="row"><div class="grow"><div class="small muted">'+esc(jRef(j))+' · '+esc(h[0])+' since '+dt(h[2])+'</div><h2 style="margin:2px 0 0">Resume the job</h2></div><button class="chip" onclick="closeSheet()">Close</button></div>'+
+    fld('hd_d','Resumed on',D.today,'date',' min="'+h[2]+'" max="'+D.today+'"')+
+    '<p class="note">The clock starts again from this date.</p><div id="hd_err" class="rg-err" role="alert"></div><button class="btn" id="hd_s">Resume</button>';
+  $('hd_s').onclick=function(){holdSend(i,'resume','','',$('hd_d').value,'hd_s','hd_err','Resumed');};
+  openSheet();$('sheetIn').scrollTop=0;
+}
+function holdSend(i,act,r,nt,d,bid,eid,done){
+  var j=D.jobs[i],ref=jRef(j);if(!d){$(eid).innerHTML=ic('alert',16,2.2)+'<span>Enter the date.</span>';return;}
+  $(bid).disabled=true;
+  call('app_hold',PIN,ref,act,r,nt,d).then(function(res){D.reqs=D.reqs||{};var q=D.reqs[ref]||['',''];D.reqs[ref]=[q[0],q[1],res&&res.holds||[]];
+      closeSheet();toast(done+' ✓');if(current==='job'){drawJob();jxLoadHist();}})
+    .catch(function(e){$(bid).disabled=false;$(eid).innerHTML=ic('alert',16,2.2)+'<span>'+esc(errMsg(e))+'</span>';});
 }
 function drawJob(){
   var j=jxJob(),box=$('jobPage');if(!box)return;
@@ -4098,11 +4240,9 @@ function drawJob(){
   var h=(fl?'<button class="jx-back" onclick="show(\'locations\');locSel=this.dataset.l;drawLocations()" data-l="'+esc(fl)+'">'+ic('left',18,2.2)+esc(fl)+'</button>':fc?'<button class="jx-back" onclick="openContract(\''+esc(JX.from)+'\')">'+ic('left',18,2.2)+esc(fc[C.tab])+'</button>':'<button class="jx-back" onclick="show(\'jobs\')">'+ic('left',18,2.2)+'Jobs</button>')+
     '<div class="jx-head"><div class="grow" style="min-width:0"><div class="jx-ctx">'+ctx+'</div><h1>'+esc(j[J.facility]||'(building not entered)')+'</h1></div>'+
     (ed?'<div class="jx-ha"><button class="btn sec" onclick="editJob('+i+')">'+ic('jobs',18,2)+'Update job</button></div>':'')+'</div>'+
-    '<div class="jx-pills">'+jPill(st)+(j[J.status]?'<span class="jx-wk"><i class="jx-dot"></i>Site: '+esc(j[J.status])+'</span>':'')+
-    (j[J.req]?'<span class="jx-wk">'+ic('cal',14,2)+'Requested '+dt(j[J.req])+'</span>':'')+'</div>';
+    (j[J.status]?'<div class="jx-pills"><span class="jx-wk"><i class="jx-dot"></i>Site: '+esc(j[J.status])+'</span></div>':'')+
+    trkHtml(j,i,ed);
   var right='',left='';
-  // next step (editors) or plain stage (top management)
-  right+=ed?jxNext(j,i):'<div class="card jx-next"><span class="jx-k">Stage</span><b>'+esc(prog(j)[1])+'</b><span class="muted">'+esc((JSTAGE[st]||[])[2]||'')+'</span></div>';
   // site status, one tap
   if(ed&&!closed&&(D.statuses||[]).length)right+='<div class="jx-sec"><h2>Site status</h2><span class="r">tap to change</span></div><div class="jx-chips wrap">'+
     D.statuses.filter(function(s){return s!=='Cancelled';}).map(function(s){var on=j[J.status]===s;return '<button class="jx-chip" aria-pressed="'+on+'" onclick="jxSetStatus('+i+',this.dataset.s)" data-s="'+esc(s)+'">'+(on?ic('check',14,2.6):'')+esc(s)+'</button>';}).join('')+'</div>';
@@ -4171,7 +4311,7 @@ var TITLE_RX=/^(Ir\.|Ts\.|Gs\.|Br\.|PMr\.|QPr\.|Dr\.)$/,JOIN_RX=/^(Bin|Binti|Ak\
 function nameWords(n){return String(n||'').split(/\s+/).filter(function(w){return w&&!TITLE_RX.test(w)&&!JOIN_RX.test(w);});}
 function shortOf(n){var w=nameWords(n);return (/^Ir\./.test(n||'')?'Ir. ':'')+(w[0]||n||'');}
 function initOf(n){var w=nameWords(n);return (((w[0]||'')[0]||'')+((w[1]||'')[0]||'')).toUpperCase()||'MM';}
-var MM_BUILD='Build 4n · clearer jobs · 24 Nov 2026';
+var MM_BUILD='Build 4p · progress tracker · 24 Nov 2026';
 var ROLE_SHORT={admin:'Admin',editor:'Section staff',viewer:'Top management'};
 
 // ---- theme: auto / light / dark, remembered on this device
@@ -4237,10 +4377,10 @@ function drawBand(v){
   if(v==='home'){
     pb.className='pband big';
     pb.innerHTML=planSvg()+top+'<div class="pb-brand"><span class="jkrp"><img src="'+BRAND.logo+'" alt="JKR Sarawak"></span><span class="ssep"></span>'+mark(28,'rgba(255,255,255,.14)','#fff','#f8cd0a',8)+'<div style="line-height:1.2"><b style="font-size:14px;font-weight:800;display:block">MMTrack</b><span style="font-size:13px;opacity:.88;font-weight:600">Mechanical · JKR Sibu</span></div></div>'+
-     '<div class="pb-title">'+greeting()+',<br><em>'+esc(shortOf(nm)||'there')+'</em>.</div><div class="pb-sub">'+sum+'</div>';
+     '<h1 class="pb-title">'+greeting()+',<br><em>'+esc(shortOf(nm)||'there')+'</em>.</h1><div class="pb-sub">'+sum+'</div>';
   }else{
     pb.className='pband';
-    pb.innerHTML=top+'<div class="pb-brand" style="margin-top:12px"><span class="jkrp"><img src="'+BRAND.logo+'" alt="JKR Sarawak" style="height:20px"></span><span class="pb-title" style="margin:0;font-size:24px">'+esc(TITLES[v]||'')+'</span></div>';
+    pb.innerHTML=top+'<div class="pb-brand" style="margin-top:12px"><span class="jkrp"><img src="'+BRAND.logo+'" alt="JKR Sarawak" style="height:20px"></span><h1 class="pb-title" style="margin:0;font-size:24px">'+esc(TITLES[v]||'')+'</h1></div>';
   }
   var dh=$('dhero');
   if(dh)dh.innerHTML='<div class="dh-row"><div style="min-width:0"><h2 class="dh-h">'+greeting()+', <em>'+esc(shortOf(nm)||'there')+'</em>.</h2><div class="dh-sub">'+sum+'</div></div>'+
@@ -4271,7 +4411,7 @@ function ktag(x,big){var last=ls('mm_last'),g=grade(x[1]);return '<button type="
 function lkSide(locked,name){
   return '<div class="lk-side">'+planSvg()+'<div class="lk-top"><span class="jkrp"><img src="'+BRAND.logo+'" alt="JKR Sarawak" style="height:28px"></span><span class="ssep"></span>'+mark(34,'rgba(255,255,255,.14)','#fff','#f8cd0a',9)+'<div style="line-height:1.2"><b style="font-size:16px;font-weight:800;display:block">MMTrack</b><span style="font-size:13px;opacity:.85;font-weight:600">Mechanical maintenance</span></div></div>'+
    '<span class="eyebrow" style="margin-top:18px"><i></i>MECHANICAL SECTION · JKR BAHAGIAN SIBU</span>'+
-   '<div class="lk-h">'+(locked?'Welcome back, <em>'+esc(shortOf(name))+'</em>.':greeting()+'.<br>Let’s keep things <em>running</em>.')+'</div>'+
+   '<h1 class="lk-h">'+(locked?'Welcome back, <em>'+esc(shortOf(name))+'</em>.':greeting()+'.<br>Let’s keep things <em>running</em>.')+'</h1>'+
    '<div class="lk-sub">From “something’s leaking” to “payment made”, every job tracked in one place. The paper trail stays, now easier to follow.</div>'+
    '<div class="lk-meta"><span class="when">'+ic(new Date().getHours()>=7&&new Date().getHours()<19?'sun':'moon',15,2.2)+esc(whenTxt(false))+'</span><span class="tagl" style="margin-left:auto">WE <em>BUILD</em> FOR <em>YOU</em></span></div></div>';
 }
